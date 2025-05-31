@@ -35,7 +35,7 @@ allegro_auth/
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/yourusername/allegro_auth.git
+   git clone https://github.com/veritasdol/allegro_auth.git
    cd allegro_auth
    ```
 2. Create `.env` based on the example:
