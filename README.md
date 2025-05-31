@@ -79,3 +79,6 @@ REDIRECT_URI=http://localhost
 | `REDIRECT_URI`  | ✅       | Redirect URI registered in your app (e.g.`http://localhost`) |
 
 > ⚠️ Do **not** commit your real `.env` file — add it to `.gitignore`.
+
+## License
+MIT
