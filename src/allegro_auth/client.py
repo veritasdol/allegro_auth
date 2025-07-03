@@ -1,7 +1,7 @@
 import requests
 from urllib.parse import urlencode
-from config import CLIENT_ID, CLIENT_SECRET, AUTH_URL, TOKEN_URL, REDIRECT_URI
-from token_manager import read_tokens, write_tokens, is_token_valid
+from .config import AUTH_URL, TOKEN_URL
+from .token_manager import read_tokens, write_tokens, is_token_valid
 
 requests.packages.urllib3.disable_warnings()
 
@@ -43,7 +43,14 @@ def refresh_token(refresh_token: str):
         "redirect_uri": REDIRECT_URI
     })
 
-def authenticate() -> str:
+def authenticate(client_secret: str, client_id: str, redirect_uri: str) -> str:
+    global CLIENT_ID
+    global CLIENT_SECRET
+    global REDIRECT_URI
+    CLIENT_ID = client_id
+    CLIENT_SECRET = client_secret
+    REDIRECT_URI = redirect_uri
+
     token_data = read_tokens()
 
     if token_data and is_token_valid(token_data.expires_in, token_data.date):

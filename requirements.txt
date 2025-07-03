@@ -1,3 +1,4 @@
 requests
 pydantic
 python-dotenv
+platformdirs
