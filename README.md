@@ -1,7 +1,11 @@
+[![PyPI version](https://img.shields.io/pypi/v/allegro_auth?color=blue)](https://pypi.org/project/allegro_auth/)
+[![Python version](https://img.shields.io/pypi/pyversions/allegro_auth)](https://pypi.org/project/allegro_auth/)
+[![License](https://img.shields.io/github/license/veritasdol/allegro_auth)](https://github.com/veritasdol/allegro_auth/blob/main/LICENSE)
+[![Tests](https://github.com/veritasdol/allegro_auth/actions/workflows/tests.yml/badge.svg)](https://github.com/veritasdol/allegro_auth/actions/workflows/tests.yml)
+
 # Allegro OAuth2 Authenticator
 
-This Python script handles authentication with the Allegro API using OAuth2.
-
+A lightweight Python package for handling OAuth2 authentication with the Allegro API.
 
 ## Features
 
@@ -10,75 +14,48 @@ This Python script handles authentication with the Allegro API using OAuth2.
 - Automatically refreshes expired access tokens
 - Validates tokens with Pydantic
 - Stores tokens in `tokens.json`
-- Reads credentials from `.env` file
-
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 - Allegro developer account
 
-
-## Structure
-
-```apache
-allegro_auth/
-├── config.py        # handles env loading
-├── schema.py        # pydantic models
-├── token_manager.py # token reading/writing/refreshing
-├── client.py        # logic to authenticate and send requests
-└── main.py          # entry point
-```
-
-## Setup
-
-1. Clone the repo:
-
-   ```bash
-   git clone https://github.com/veritasdol/allegro_auth.git
-   cd allegro_auth
-   ```
-2. Create `.env` based on the example:
-
-   ```bash
-   cp .env.example .env
-   ```
-3. Install dependencies:
-
-   ```
-   pip install -r requirements.txt
-   ```
-4. Run the script:
-
-   ```
-   python auth.py
-   ```
-
-
-## Environment Variables
-
-These variables are required and must be set in a `.env` file located in the root of the project.
-
-Example `.env`:
+## Installation
 
 ```bash
-CLIENT_ID=your_client_id_here
-CLIENT_SECRET=your_client_secret_here
-AUTH_URL=https://allegro.pl/auth/oauth/authorize
-TOKEN_URL=https://allegro.pl/auth/oauth/token
-REDIRECT_URI=http://localhost
+pip install allegro_auth
 ```
 
+## Example Usage
 
-| Variable          | Required | Description                                                    |
-| ----------------- | -------- | -------------------------------------------------------------- |
-| `CLIENT_ID`     | ✅       | Client ID from your Allegro Developer application              |
-| `CLIENT_SECRET` | ✅       | Client secret from your Allegro Developer application          |
-| `AUTH_URL`      | ✅       | Authorization endpoint, usually `https://.../authorize`      |
-| `TOKEN_URL`     | ✅       | Token endpoint, usually `https://.../token`                  |
-| `REDIRECT_URI`  | ✅       | Redirect URI registered in your app (e.g.`http://localhost`) |
+```python
+from allegro_auth import AllegroAuth
 
-> ⚠️ Do **not** commit your real `.env` file — add it to `.gitignore`.
+
+allegro = AllegroAuth(
+   client_id="your_client_id",
+   client_secret="your_client_secret",
+   redirect_uri="your_redirect_uri"
+   )
+
+token = allegro.authenticate()
+```
+
+On first run, you'll be prompted to open a URL and paste the authorization code.
+
+## Token Storage
+
+Tokens are stored in a local `tokens.json` file and automatically refreshed when expired.
+Location follows OS conventions via `platformdirs`:
 
 ## License
-MIT
+
+This project is licensed under the MIT License.
+
+## Links
+
+* [Allegro API Docs](https://developer.allegro.pl/)
+
+* [Project Homepage](https://github.com/veritasdol/allegro_auth)
+
+* [Issue Tracker](https://github.com/veritasdol/allegro_auth/issues)

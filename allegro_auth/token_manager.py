@@ -1,8 +1,8 @@
 import json
 from datetime import datetime, timedelta
 from typing import Optional
-from schema import TokenSchema
-from config import TOKEN_FILE
+from .schema import TokenSchema
+from .config import TOKEN_FILE
 
 def is_token_valid(expires_in: int, date: str) -> bool:
     token_time = datetime.fromisoformat(date)
