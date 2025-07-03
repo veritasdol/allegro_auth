@@ -1,3 +1,3 @@
-from client import authenticate
+from client import AllegroAuth
 
-__all__ = ["authenticate"]
+__all__ = ["AllegroAuth"]

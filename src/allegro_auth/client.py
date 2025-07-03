@@ -5,13 +5,12 @@ from .token_manager import read_tokens, write_tokens, is_token_valid
 
 requests.packages.urllib3.disable_warnings()
 
+
 class AllegroAuth:
-    def __init__(self, client_id: str, client_secret:str, redirect_uri: str):
+    def __init__(self, client_id: str, client_secret: str, redirect_uri: str):
         self.client_id = client_id
         self.client_secret = client_secret
         self.redirect_uri = redirect_uri
-
-    
 
     def __send_request(self, method: str, data: dict):
         try:
@@ -39,20 +38,20 @@ class AllegroAuth:
 
     def __get_token_by_code(self, code: str):
         return self.__send_request(
-            "POST", 
+            "POST",
             {
-            "grant_type": "authorization_code",
-            "code": code,
-            "redirect_uri": self.redirect_uri
+                "grant_type": "authorization_code",
+                "code": code,
+                "redirect_uri": self.redirect_uri
             })
 
     def __refresh_token(self, refresh_token: str):
         return self.__send_request(
-            "POST", 
+            "POST",
             {
-            "grant_type": "refresh_token",
-            "refresh_token": refresh_token,
-            "redirect_uri": self.redirect_uri
+                "grant_type": "refresh_token",
+                "refresh_token": refresh_token,
+                "redirect_uri": self.redirect_uri
             })
 
     def authenticate(self) -> str:
