@@ -55,7 +55,8 @@ class AllegroAuth:
             })
 
     def authenticate(self) -> str:
-
+        """ Authenticate with Allegro API and return access token."""
+        
         token_data = read_tokens()
 
         if token_data and is_token_valid(token_data.expires_in, token_data.date):

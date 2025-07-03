@@ -1,21 +1,33 @@
 [build-system]
-requires = ["setuptools >= 77.0.3"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
 [project]
 name = "allegro_auth"
-version = "0.0.1"
+version = "2.1.0"
 authors = [
   { name="Serhii Dolhopolov", email="veritas.dol@gmail.com" },
 ]
 description = "This Python package handles authentication with the Allegro API using OAuth2."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
 license = "MIT"
-license-files = ["LICEN[CS]E*"]
+license-files = ["LICENCE"]
+
+dependencies = [
+  "requests",
+  "pydantic",
+  "python-dotenv",
+  "platformdirs",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+]
 
 [project.urls]
 Homepage = "https://github.com/veritasdol/allegro_auth"
