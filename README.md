@@ -1,6 +1,6 @@
-[![PyPI version](https://img.shields.io/pypi/v/allegro_auth?color=blue)](https://pypi.org/project/allegro_auth/)
-[![Python version](https://img.shields.io/pypi/pyversions/allegro_auth)](https://pypi.org/project/allegro_auth/)
-[![License](https://img.shields.io/github/license/veritasdol/allegro_auth)](https://github.com/veritasdol/allegro_auth/blob/main/LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/allegro_auth?color=blue)](https://pypi.org/project/allegro-auth/)
+[![Python version](https://img.shields.io/pypi/pyversions/allegro_auth)](https://pypi.org/project/allegro-auth/)
+[![License](https://img.shields.io/github/license/veritasdol/allegro_auth)](https://github.com/veritasdol/allegro-auth/blob/main/LICENSE)
 [![Tests](https://github.com/veritasdol/allegro_auth/actions/workflows/tests.yml/badge.svg)](https://github.com/veritasdol/allegro_auth/actions/workflows/tests.yml)
 
 # Allegro OAuth2 Authenticator
