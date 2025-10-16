@@ -6,7 +6,7 @@ class TokenSchema(BaseModel):
     refresh_token: str
     expires_in: int
     scope: str
-    allegro_api: bool
+    allegro_api: bool | None = None
     iss: str
     jti: str
     date: str
